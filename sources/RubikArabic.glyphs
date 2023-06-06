@@ -239,8 +239,17 @@ lookup ccmp_arab_1 {
 	sub kasratan-ar shadda-ar by shaddaKasratan-ar;
 } ccmp_arab_1;
 
+lookup ccmp_latn_1 {
+	sub fi by f i;
+	sub fl by f l;
+	sub Ldot by L periodcentered.loclCAT.case;
+} ccmp_latn_1;
+
 script arab;
 lookup ccmp_arab_1;
+
+script latn;
+lookup ccmp_latn_1;
 ";
 name = ccmp;
 },
@@ -525,12 +534,15 @@ sub veh-ar by veh-ar.init;
 sub fehDotless-ar by fehDotless-ar.init;
 sub qaf-ar by qaf-ar.init;
 sub kaf-ar by kaf-ar.init;
+sub keheh-ar by keheh-ar.init;
+sub gaf-ar by gaf-ar.init;
 sub lam-ar by lam-ar.init;
 sub meem-ar by meem-ar.init;
 sub noon-ar by noon-ar.init;
 sub heh-ar by heh-ar.init;
 sub yeh-ar by yeh-ar.init;
 sub yehHamzaabove-ar by yehHamzaabove-ar.init;
+sub yeh-farsi by yeh-farsi.init;
 ";
 name = init;
 },
@@ -558,12 +570,15 @@ sub veh-ar by veh-ar.medi;
 sub fehDotless-ar by fehDotless-ar.medi;
 sub qaf-ar by qaf-ar.medi;
 sub kaf-ar by kaf-ar.medi;
+sub keheh-ar by keheh-ar.medi;
+sub gaf-ar by gaf-ar.medi;
 sub lam-ar by lam-ar.medi;
 sub meem-ar by meem-ar.medi;
 sub noon-ar by noon-ar.medi;
 sub heh-ar by heh-ar.medi;
 sub yeh-ar by yeh-ar.medi;
 sub yehHamzaabove-ar by yehHamzaabove-ar.medi;
+sub yeh-farsi by yeh-farsi.medi;
 ";
 name = medi;
 },
@@ -602,6 +617,8 @@ sub fehDotless-ar by fehDotless-ar.fina;
 sub qafDotless-ar by qafDotless-ar.fina;
 sub qaf-ar by qaf-ar.fina;
 sub kaf-ar by kaf-ar.fina;
+sub keheh-ar by keheh-ar.fina;
+sub gaf-ar by gaf-ar.fina;
 sub lam-ar by lam-ar.fina;
 sub meem-ar by meem-ar.fina;
 sub noon-ar by noon-ar.fina;
@@ -618,7 +635,7 @@ sub lam_alef-ar by lam_alef-ar.fina;
 sub lam_alefHamzaabove-ar by lam_alefHamzaabove-ar.fina;
 sub lam_alefHamzabelow-ar by lam_alefHamzabelow-ar.fina;
 sub lam_alefMadda-ar by lam_alefMadda-ar.fina;
-sub lam_alefWasla-ar by lam_alefWasla-ar.fina;
+sub behDotless_alefMaksura-ar by behDotless_alefMaksura-ar.fina;
 sub beh_alefMaksura-ar by beh_alefMaksura-ar.fina;
 sub beh_yeh-ar by beh_yeh-ar.fina;
 sub beh_yehHamzaabove-ar by beh_yehHamzaabove-ar.fina;
@@ -631,7 +648,14 @@ sub teh_yehHamzaabove-ar by teh_yehHamzaabove-ar.fina;
 sub theh_alefMaksura-ar by theh_alefMaksura-ar.fina;
 sub theh_yeh-ar by theh_yeh-ar.fina;
 sub theh_yehHamzaabove-ar by theh_yehHamzaabove-ar.fina;
+sub jeem_alefMaksura-ar by jeem_alefMaksura-ar.fina;
+sub jeem_yeh-ar by jeem_yeh-ar.fina;
+sub jeem_yehHamzaabove-ar by jeem_yehHamzaabove-ar.fina;
+sub hah_alefMaksura-ar by hah_alefMaksura-ar.fina;
+sub hah_yeh-ar by hah_yeh-ar.fina;
+sub hah_yehHamzaabove-ar by hah_yehHamzaabove-ar.fina;
 sub khah_alefMaksura-ar by khah_alefMaksura-ar.fina;
+sub khah_yeh-ar by khah_yeh-ar.fina;
 sub khah_yehHamzaabove-ar by khah_yehHamzaabove-ar.fina;
 sub seen_reh-ar by seen_reh-ar.fina;
 sub seen_alefMaksura-ar by seen_alefMaksura-ar.fina;
@@ -657,6 +681,7 @@ sub kaf_alefMaksura-ar by kaf_alefMaksura-ar.fina;
 sub kaf_yeh-ar by kaf_yeh-ar.fina;
 sub kaf_yehHamzaabove-ar by kaf_yehHamzaabove-ar.fina;
 sub lam_alefMaksura-ar by lam_alefMaksura-ar.fina;
+sub lam_alefWasla-ar by lam_alefWasla-ar.fina;
 sub lam_yeh-ar by lam_yeh-ar.fina;
 sub lam_yehHamzaabove-ar by lam_yehHamzaabove-ar.fina;
 sub noon_alefMaksura-ar by noon_alefMaksura-ar.fina;
@@ -670,8 +695,9 @@ name = fina;
 },
 {
 automatic = 1;
-code = "lookup rlig_arabic_0 {
-	lookupflag IgnoreMarks RightToLeft;
+code = "lookup rlig_arab_0 {
+	lookupflag IgnoreMarks;
+	script arab;
 	sub lam-ar.init alef-ar.fina by lam_alef-ar;
 	sub lam-ar.medi alef-ar.fina by lam_alef-ar.fina;
 	sub lam-ar.init alefHamzaabove-ar.fina by lam_alefHamzaabove-ar;
@@ -680,14 +706,11 @@ code = "lookup rlig_arabic_0 {
 	sub lam-ar.medi alefHamzabelow-ar.fina by lam_alefHamzabelow-ar.fina;
 	sub lam-ar.init alefMadda-ar.fina by lam_alefMadda-ar;
 	sub lam-ar.medi alefMadda-ar.fina by lam_alefMadda-ar.fina;
-	sub lam-ar.init alefWasla-ar.fina by lam_alefWasla-ar;
-	sub lam-ar.medi alefWasla-ar.fina by lam_alefWasla-ar.fina;
 	sub lam-ar.init alefMaksura-ar.fina by lam_alefMaksura-ar;
 	sub lam-ar.medi alefMaksura-ar.fina by lam_alefMaksura-ar.fina;
-} rlig_arabic_0;
-
-script arab;
-lookup rlig_arabic_0;
+	sub lam-ar.init alefWasla-ar.fina by lam_alefWasla-ar;
+	sub lam-ar.medi alefWasla-ar.fina by lam_alefWasla-ar.fina;
+} rlig_arab_0;
 ";
 name = rlig;
 },
@@ -696,7 +719,7 @@ automatic = 1;
 code = "lookupflag IgnoreMarks;
 sub yod-hb yod-hb by yodyod-hb;
 lookup dlig_RTL {
-lookupflag IgnoreMarks RightToLeft;
+lookupflag IgnoreMarks;
 	sub behDotless-ar.init alefMaksura-ar.fina by behDotless_alefMaksura-ar;
 	sub behDotless-ar.medi alefMaksura-ar.fina by behDotless_alefMaksura-ar.fina;
 	sub behDotless-ar.medi noonghunna-ar.fina by behDotless_noonghunna-ar.fina;
@@ -747,8 +770,6 @@ lookupflag IgnoreMarks RightToLeft;
 	sub khah-ar.medi yeh-ar.fina by khah_yeh-ar.fina;
 	sub khah-ar.init yehHamzaabove-ar.fina by khah_yehHamzaabove-ar;
 	sub khah-ar.medi yehHamzaabove-ar.fina by khah_yehHamzaabove-ar.fina;
-	sub lam-ar.medi alef-ar.fina by lam_alef-ar.fina.short;
-	sub lam-ar.init alef-ar.fina by lam_alef-ar.short;
 	sub lam-ar.init alefMaksura-ar.fina by lam_alefMaksura-ar;
 	sub lam-ar.medi alefMaksura-ar.fina by lam_alefMaksura-ar.fina;
 	sub lam-ar.init yeh-ar.fina by lam_yeh-ar;
