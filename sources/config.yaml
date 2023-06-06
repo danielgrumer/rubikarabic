@@ -1,8 +1,8 @@
 sources:
-  - Rubik.glyphs
-  - Rubik-Italic.glyphs
-axisOrder:
-  - wght
-  - ital
-familyName: Rubik
-autohintTTF: True
+  - Rubik Arabic.glyphs
+familyName: Rubik Arabic
+buildVariable: true
+buildStatic: false
+buildWebfont: false
+buildTTF: true
+buildOTF: false
