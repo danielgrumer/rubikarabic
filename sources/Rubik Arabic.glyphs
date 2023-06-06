@@ -130421,6 +130421,7 @@ instanceInterpolations = {
 "581BC726-83A6-4935-8633-5A6508251040" = 1;
 };
 name = Light;
+weightClass = Light;
 },
 {
 interpolationWeight = 90;
